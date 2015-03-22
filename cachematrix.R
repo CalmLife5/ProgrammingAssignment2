@@ -69,6 +69,7 @@ makeCacheMatrix <- function(x = matrix()) {
              getinverse = getinverse)
 }
 
+# "Teaching" function to learn about lexical scoping and
 cacheSolve <- function(x) {
         # Given an invertible matrix x, calculate and then cache the
         # inverted result
@@ -77,8 +78,8 @@ cacheSolve <- function(x) {
                 message("getting cached data")
                 return(m)
         }
-        data <- x$get()
-        m <- solve(data)
+        data <- x$get()                                  # Using the functions from the list built
+        m <- solve(data)                                 # in makeCacheMatrix
         x$setinverse(m)
-        return(m)                                       # I like the explicit return
+        return(m)                                        # I like the explicit return
 }
